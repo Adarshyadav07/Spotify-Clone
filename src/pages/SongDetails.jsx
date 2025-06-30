@@ -25,7 +25,7 @@ const SongDetails = () => {
     <Loader title="Searching song details" />;
 
     if (error) return <Error />;
-    console.log(songid);
+    // console.log(songid);
 
     return (
         <div className="flex flex-col">

@@ -2,11 +2,13 @@ import { useSelector } from 'react-redux';
 
 import { Error, Loader, SongCard } from '../components';
 import { useGetTopChartsQuery } from '../redux/services/shazamCore';
+import { useMemo } from 'react';
 
 
 const TopCharts = () => {
 const { activeSong, isPlaying } = useSelector((state) => state.player);
-const { data, isFetching, error } = useGetTopChartsQuery();
+const { data, isFetching, error } = useMemo(()=>(useGetTopChartsQuery())) 
+
 
 
 if(isFetching) return <Loader title="Loading top charts"/>;
